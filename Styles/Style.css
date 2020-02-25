@@ -194,12 +194,63 @@ li#logout a {
     font-size: 1em;
 }
 
+@media screen and (max-width: 750px) {
+    header {
+        width: 100%;
+        position: fixed;
+        height: 100px;
+        width: auto;
+        height: 140px;
+        z-index: 99;
+        -webkit-box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.19);
+        -moz-box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.19);
+        box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.19);
+        transition: top 0.2s ease-in-out;
+    }
+    .nav-up {
+        top: -100px;
+    }
+    
+        header a h1{
+            margin-top: 30px;
+            font-size: 2.5em;
+            left: 50%;
+            right: 50%;
+            font-weight: 100;
+            padding-bottom: 25px;
+        }
+    
+        header nav {
+            overflow: hidden;
+            text-align: center;
+            padding-bottom: 20px;
+        }
+    
+        header nav ul{
+            display: block;
+            margin: 0 auto;
+            width: fit-content;
+        }
+    
+        header nav li {
+            color: #bfbfbf;
+            font-size: 0.6rem;
+            padding: 0 1px;
+            display: inline-block;
+        }
+    
+        header nav li em {
+            display: block;
+            color: #474747;
+            font-size: 2.4em;
+        }
+}
 /*===================================
 Sign up
 ===================================*/
 
 reg .container {
-    position: relative;
+    position: relative; 
     width: 355px;
     height: 350px;
     margin: 50px auto;
@@ -321,13 +372,19 @@ input[type='submit']{
     Main
 =================================*/
 
+@media screen and (max-width: 750px) {
+    main {
+        padding-top: 70px;
+    }
+}
+
 main {
     margin-top: 90px;
 }
 
 .searchbox {
     margin: 25px auto;
-    width: 750px;
+    width: 75%;
     height: 250px;
     background-color: #6d93e6;
     border-radius: 5px;
