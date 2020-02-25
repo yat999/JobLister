@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="Styles/Style.css">
-    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway|Poppins&display=swap" rel="stylesheet">
     <title>JobLister</title>
 </head>
 <body>
@@ -32,3 +32,14 @@
             </ul>
         </nav>
     </header>
+    <main>
+        <div class="searchbox">
+            <h1>Find a job.</h1>
+            <h3>Select a category</h3>
+            <select>
+                <option>Engineering</option>
+                <option>Accountancy</option>
+                <option>Banking</option>
+            </select>
+        </div>
+    </main>

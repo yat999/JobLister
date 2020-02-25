@@ -20,11 +20,11 @@
         }
     </style>
 </head>
-<main>
+<reg class="register">
     <div class="container">
         <h1>Job<b>Lister</b></h1>
-        <form action="signUp.php" method="POST">
-            <div class="left">
+        <form enctype="multipart/form-data" action="signUp.php" method="POST">
+            <div class="content" id="left">
                 <label for="email">Email</label>
                 <input type="text" name="email" id="email" required placeholder="you@example.com">
                 <label for="password">Password</label>
@@ -34,19 +34,19 @@
                 <label for="l_name">Last Name</label>
                 <input type="text" name="l_name" id="l_name" required placeholder="Doe">
             </div>
-            <div class="right">
+            <div class="content" id="right">
                 <label for="qual">Qualifictaion</label>
                 <input type="text" name="qual" id="qual" required placeholder="Bachelor in Science">
                 <label for="ph_no">Contact</label>
-                <input type="ph_no" name="ph_no" id="ph_no" required placeholder="XXXXX XXXXX">
+                <input type="tel" name="ph_no" id="ph_no" required placeholder="XXXXX XXXXX">
                 <label for="dob">Date of Birth</label>
                 <input type="date" name="dob" id="dob" required>
                 <label for="resume">Resume</label>
                 <input type="file" name="resume" id="resume" required>
             </div>
             <div class="submit-wrap">
-                <input name="submit-login" type="submit" value="Sign in" class="submit">
+                <input name="submit-reg" type="submit" value="Register" class="submit">
             </div>
         </form>
     </div>
-</main>
+</reg>

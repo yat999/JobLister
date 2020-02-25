@@ -210,6 +210,18 @@ reg .container {
     box-shadow: 10px 10px 16px 0px rgba(0,0,0,0.75);
     padding: 50px 40px 55px;
 }
+    .register .container {
+        height: auto;
+        width: 750px;
+    }
+
+    .register #left {
+        float: left;
+    }
+
+    .register #right {
+        float: right;
+    }
 
 reg .container h1 {
     font-family: 'Poppins', sans-serif;
@@ -243,12 +255,13 @@ label {
 .content input[type="tel"],
 .content input[type="search"],
 .content input[type="time"],
-.content input[type="url"]{
+.content input[type="url"],
+.content input[type="file"] {
     font-size: 14px;
     left: 50%;
     right: 50%;
     display: block;
-    width: 300px;
+    width: 320px;
     height: 0.7rem;
     margin-bottom: 12px;
     padding: 16px 13px;
@@ -259,7 +272,7 @@ label {
 }
 
 input[type='submit']{
-    margin-left: 40px;
+    margin-inline: auto;
     transform: translateY(25px);
     font-size: 12px;
     line-height: 42px;
@@ -302,4 +315,52 @@ input[type='submit']{
         padding: 6px 12px;
         border: none;
         display: none;
+    }
+
+/*=================================
+    Main
+=================================*/
+
+main {
+    margin-top: 90px;
+}
+
+.searchbox {
+    margin: 25px auto;
+    width: 750px;
+    height: 250px;
+    background-color: #6d93e6;
+    border-radius: 5px;
+}
+
+    .searchbox h1 {
+        text-align: center;
+        padding-top: 75px;
+        font-size: 3em;
+        color: #182f53;
+    }
+
+    .searchbox h3 {
+        text-align: center;
+        padding-bottom: 25px;
+    }
+
+    .searchbox select {
+        display: block;
+        margin: 0 auto;
+        background-color: #ebebeb;
+        font: Lato sans;
+        color: #182f53;
+        padding: 12px 0;
+        width: 250px;
+        font-size: 15px;
+        box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+        -webkit-appearance: button;
+        appearance: button;
+        border-radius: 20px;
+        text-align-last:center;
+    }
+
+    .searchbox select option {
+        padding: 30px;
     }
