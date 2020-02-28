@@ -388,7 +388,6 @@ main {
     height: 350px;
     background-color: #6d93e6;
     border-radius: 5px;
-    overflow: auto;
     overflow-y: hidden;
 }
 
@@ -442,6 +441,8 @@ main {
 @media screen and (min-width: 550px) {
     .searchbox {
         width: 90%;
+        overflow: auto;
+        height: 320px;
     }
 
     .searchbox h1 {
@@ -450,11 +451,11 @@ main {
 
     .searchbox .categories {
         float: left;
-        padding-left: 25%;
+        padding-left: 28%;
     }
 
     .searchbox .location {
         float: right;
-        padding-right: 25%;
+        padding-right: 28%;
     }
 }
