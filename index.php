@@ -64,4 +64,10 @@
             </div><br>
             <input type="button" value="Search"></button>
         </div>
+        <div class="bar">
+            <h3><?php ?> posts found</h3>
+            <input type="button" value="+ add" onClick="location.href='addPost.php'"></input>
+        </div>
     </main>
+</body>
+</html>
