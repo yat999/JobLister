@@ -383,16 +383,18 @@ main {
 }
 
 .searchbox {
-    margin: 25px auto;
+    margin: 20px auto;
     width: 75%;
-    height: 250px;
+    height: 350px;
     background-color: #6d93e6;
     border-radius: 5px;
+    overflow: auto;
+    overflow-y: hidden;
 }
 
     .searchbox h1 {
         text-align: center;
-        padding-top: 75px;
+        padding-top: 40px;
         font-size: 3em;
         color: #182f53;
     }
@@ -416,8 +418,43 @@ main {
         appearance: button;
         border-radius: 20px;
         text-align-last:center;
+        margin-bottom: 10px;
     }
 
     .searchbox select option {
         padding: 30px;
     }
+
+    .searchbox input {
+        display: block;
+        margin: auto;
+        transform: translateY(100%);
+        width: 100px;
+        background: #182f53;
+        font-size: 20px;
+        color: #6d93e6;
+        border: 0;
+        border-radius: 10px;
+        cursor: pointer;
+        margin-bottom: 25px;
+    }
+
+@media screen and (min-width: 550px) {
+    .searchbox {
+        width: 90%;
+    }
+
+    .searchbox h1 {
+        padding-top: 75px;
+    }
+
+    .searchbox .categories {
+        float: left;
+        padding-left: 25%;
+    }
+
+    .searchbox .location {
+        float: right;
+        padding-right: 25%;
+    }
+}

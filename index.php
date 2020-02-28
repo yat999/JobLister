@@ -1,5 +1,21 @@
 <?php
     session_start();
+
+    require 'conn.php';
+
+    $stm = "SELECT c_id, c_name FROM categories;";
+    $stmt = "SELECT DISTINCT location FROM jobs;";
+    $sql = mysqli_query($conn, $stm) or die( mysqli_error($conn));;
+    $option = '';
+    while($row = mysqli_fetch_assoc($sql)) {
+       $option .= '<option value = "'.$row['c_id'].'">'.$row['c_name'].'</option>';
+    }
+    $loc = '';
+    $sql = mysqli_query($conn, $stmt) or die( mysqli_error($conn));;
+    while($row = mysqli_fetch_assoc($sql)) {
+        $loc .= '<option value = "'.$row['job_id'].'">'.$row['location'].'</option>';
+    }
+    
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +42,7 @@
                     if(!isset($_SESSION['user'])) {
                         echo '<li id="login"><a href="signIn.php"><img src="Icons/user-solid.svg"></a>';
                     } else {
-                        echo '<li id="logout"><a href="logOut.php">', $_SESSION['user'] ,'</a><ul><li><a href="user/myorders.php">My orders</a></li><li><a href="logOut.php">Log out</a></li></ul></li>';
+                        echo '<li id="logout"><a href="logOut.php">', $_SESSION['user'] ,'</a><ul><li><a href="logOut.php">Log out</a></li></ul></li>';
                     }
                 ?>
             </ul>
@@ -35,11 +51,17 @@
     <main>
         <div class="searchbox">
             <h1>Find a job.</h1>
-            <h3>Select a category</h3>
-            <select>
-                <option>Engineering</option>
-                <option>Accountancy</option>
-                <option>Banking</option>
-            </select>
+            <h3>Select a category & your preferred location</h3>
+            <div class="categories">
+                <select> 
+                    <?php echo $option; ?>
+                </select>
+            </div>
+            <div class= "location">
+                <select>
+                    <?php echo $loc; ?>
+                </select>
+            </div><br>
+            <input type="button" value="Search"></button>
         </div>
     </main>

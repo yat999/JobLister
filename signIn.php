@@ -30,7 +30,7 @@
                 <input type="text" name="email" id="email" required placeholder="you@example.com">
                 <label for="password">Password</label>
                 <input type="password" name="password" id="password" required placeholder="Your password">
-                <a href="#" class="more">Forgot your password?</a>
+                <a href="register.php" class="more">Don't have an account?</a>
                 <div class="submit-wrap">
                     <input name="submit-login" type="submit" value="Sign in" class="submit">
                 </div>

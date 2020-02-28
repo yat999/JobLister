@@ -8,7 +8,7 @@
         $ph_no = $_POST['ph_no'];
         $pass = $_POST['password'];
         $qual = $_POST['qual'];
-        $dob = date('Y-m-d', strtotime($_POST['dob']));
+        $grad = $_POST['grad'];
         
         $resume = $_POST['resume'];
         $tmp_name = $_FILES['resume']['tmp_name'];
@@ -32,23 +32,28 @@
 
                     $stmt = "SELECT email FROM user WHERE email=?;";
                     $sql = mysqli_stmt_init($conn);
+                    mysqli_stmt_prepare($sql, $stmt);
+                    mysqli_stmt_bind_param($sql, "s", $user);
+                    mysqli_stmt_execute($sql);
+                    $result = mysqli_stmt_get_result($sql);
+
                     if(!$conn){
                         header('Location: register.php?error=sqlerror');
                         echo "Unsuccessful: ". mysqli_error($conn);
                         exit();
-                    }else{
+                    }else if(empty($result)) {
                         $filurl =$location.$name;
                         $hashpass = password_hash($pass, PASSWORD_DEFAULT);
-                        $stm = "INSERT INTO user(first_name, last_name, contact_user, contact_email, password, qualification, dob, resume) VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
+                        $stm = "INSERT INTO user(first_name, last_name, contact_user, contact_email, password, qualification, grad, resume) VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
                         mysqli_stmt_prepare($sql, $stm) or die(mysqli_error($conn));
-                        mysqli_stmt_bind_param($sql, "ssssssds", $fname, $lname, $ph_no, $email, $hashpass, $qual, $dob, $fileurl);
+                        mysqli_stmt_bind_param($sql, "ssssssss", $fname, $lname, $ph_no, $email, $hashpass, $qual, $grad, $fileurl);
                         if(mysqli_stmt_execute($sql)){
                             echo "Successful";
                             $_SESSION['user'] = $email;
                             header('Location: index.php?success');
                         } else {
                             echo "Unsuccessful: ". mysqli_error($conn);
-                            header('Location: register.php?error=sqlerror'. mysqli_error($conn));
+                            header('Location: logIn.php?error=UserExists');
                         }
                     } 
                 } else{

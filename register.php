@@ -39,8 +39,8 @@
                 <input type="text" name="qual" id="qual" required placeholder="Bachelor in Science">
                 <label for="ph_no">Contact</label>
                 <input type="tel" name="ph_no" id="ph_no" required placeholder="XXXXX XXXXX">
-                <label for="dob">Date of Birth</label>
-                <input type="date" name="dob" id="dob" required>
+                <label for="grad">Year of Graduation</label>
+                <input type="text" name="grad" id="grad" required>
                 <label for="resume">Resume</label>
                 <input type="file" name="resume" id="resume" required>
             </div>
