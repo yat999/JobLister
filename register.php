@@ -20,8 +20,8 @@
         }
     </style>
 </head>
-<reg class="register">
-    <div class="container">
+<reg>
+    <div id="wide" class="container">
         <h1>Job<b>Lister</b></h1>
         <form enctype="multipart/form-data" action="signUp.php" method="POST">
             <div class="content" id="left">
