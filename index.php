@@ -13,7 +13,7 @@
     $loc = '';
     $sql = mysqli_query($conn, $stmt) or die( mysqli_error($conn));;
     while($row = mysqli_fetch_assoc($sql)) {
-        $loc .= '<option value = "'.$row['job_id'].'">'.$row['location'].'</option>';
+        $loc .= '<option value = "'.$row['location'].'">'.$row['location'].'</option>';
     }
     
 ?>
@@ -67,6 +67,29 @@
         <div class="bar">
             <h3><?php ?> posts found</h3>
             <input type="button" value="+ add" onClick="location.href='addPost.php'"></input>
+        </div>
+        <div class="jobs">
+            <?php
+                $stm1 = 'SELECT * FROM jobs;';
+                $sql = mysqli_query($conn, $stm1) or die( mysqli_error($conn));
+                while($row = mysqli_fetch_array($sql, MYSQLI_BOTH)) {
+                ?>
+                    <div class="jobs-container">
+                        <form method="POST" action="apply.php">
+                            <table>
+                                <tr colspan=2><h2><?php echo $row['job_title']; ?></h2></tr>
+                                <tr colspan=2><td><h4><?php echo $row['company']; ?></h4></td><td><h4><?php echo $row['location']; ?></h4></td></tr>
+                                <tr><td><h4><?php echo $row['salary']; ?></h4></td><td rowspan=3><p><?php echo $row['description']; ?></tr>
+                                <tr><td><h4><?php echo $row['contact_email']; ?></h4></td></tr>
+                                <tr><td><h4><?php echo $row['contact_user']; ?></h4></td></tr>
+                            </table>
+                            <input type="submit" name="apply" value="Apply">
+                        </form>
+                    </div>
+                <?php
+                }
+                ?>
+            </div>
         </div>
     </main>
 </body>

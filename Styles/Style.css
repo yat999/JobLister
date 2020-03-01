@@ -266,11 +266,11 @@ Sign up
         width: 750px;
     }
 
-    .container #left {
+    #left {
         float: left;
     }
 
-    .container #right {
+    #right {
         float: right;
     }
 
@@ -320,6 +320,7 @@ label {
 .content input[type="time"],
 .content input[type="url"],
 .content input[type="file"],
+.content select,
 textarea {
     font-size: 14px;
     left: 50%;
@@ -380,8 +381,8 @@ input[type='submit']{
 textarea {
     max-width: 320px;
     min-width: 320px;
-    max-height: 160px;
-    min-height: 160px;
+    max-height: 100px;
+    min-height: 100px;
 }
 
 /*=================================
@@ -488,7 +489,7 @@ main {
 
     .bar h3 {
         float: left;
-        padding: 18px;
+        padding: 20px;
     }
 
     .bar input {
@@ -501,6 +502,35 @@ main {
     }
 
 /*==================================
-    Add Post page
+    Job container
 ==================================*/
 
+.jobs-container {
+    width: 80%;
+    height: 200px;
+    padding: 25px 0;
+    margin: 25px auto;
+    background-color: #ebebeb;
+}
+
+    .jobs-container table {
+        width: 50%;
+    }
+
+    .jobs-container h2 {
+        font-size: 1.8rem;
+        padding: 0 25px;
+    }
+
+    .jobs-container h4 {
+        font-size: 1rem;
+        padding: 0 25px;
+    }
+
+    .jobs-container p {
+        display: block;
+    }
+
+    .jobs-container #right {
+        right: 70%;
+    }

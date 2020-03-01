@@ -1,5 +1,15 @@
 <?php
     session_start();
+
+    require 'conn.php';
+
+    $stm = "SELECT c_id, c_name FROM categories;";
+    $stmt = "SELECT DISTINCT location FROM jobs;";
+    $sql = mysqli_query($conn, $stm) or die( mysqli_error($conn));;
+    $option = '';
+    while($row = mysqli_fetch_assoc($sql)) {
+       $option .= '<option value = "'.$row['c_name'].'">'.$row['c_name'].'</option>';
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,14 +34,23 @@
         input[type=submit] {
             transform: translateX(25px);
         }
+        .content select {
+            width: 350px;
+            height: 3rem;
+            padding: 2px 15px;
+        }
     </style>
     <title>JobLister</title>
 </head>
 <body>
     <div class="container" id="wide">
         <h2>Add a new job post</h2>
-        <form action="add.php" method="GET">
+        <form action="add.php" method="POST">
             <div class="content" id="left">
+                <label for="cat">Category</label>
+                <select name="cat">
+                    <?php echo $option; ?>
+                </select>
                 <label for="comp">Company</label>
                 <input type="text" name="comp" id="comp" required>
                 <label for="job">Job Title</label>
@@ -50,7 +69,7 @@
                 <input type="email" name="email" id="email" required>
             </div>
             <div class="submit-wrap">
-                <input class="submit-reg" type="submit" value="Submit" class="submit">
+                <input class="submit-add" type="submit" value="Submit">
             </div>
         </form>
     </div>

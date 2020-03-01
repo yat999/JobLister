@@ -45,7 +45,7 @@
                 <input type="file" name="resume" id="resume" required>
             </div>
             <div class="submit-wrap">
-                <input name="submit-reg" type="submit" value="Register" class="submit">
+                <input name="submit-reg" type="submit" value="Register">
             </div>
         </form>
     </div>
