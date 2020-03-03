@@ -507,14 +507,22 @@ main {
 
 .jobs-container {
     width: 80%;
-    height: 200px;
+    height: 130px;
     padding: 25px 0;
     margin: 25px auto;
     background-color: #ebebeb;
 }
 
-    .jobs-container table {
-        width: 50%;
+    .jobs-container .title {
+        overflow: auto;
+        padding-bottom: 20px;
+    }
+
+    .jobs-container input[type='submit'] {
+        width: 150px;
+        margin-bottom: 50px;
+        margin-right: 50px;
+        transform: translateY(-25px);
     }
 
     .jobs-container h2 {
@@ -529,8 +537,17 @@ main {
 
     .jobs-container p {
         display: block;
+        width: 70%;
+    }
+
+    .jobs-container #left {
+        width: 20%;
     }
 
     .jobs-container #right {
         right: 70%;
+    }
+
+    .jobs-container .desc {
+        overflow: auto;
     }

@@ -65,32 +65,44 @@
             <input type="button" value="Search"></button>
         </div>
         <div class="bar">
-            <h3><?php ?> posts found</h3>
+            <h3 id="count"> posts found</h3>
             <input type="button" value="+ add" onClick="location.href='addPost.php'"></input>
         </div>
-        <div class="jobs">
+        <div class="jobs" id="jobs">
             <?php
                 $stm1 = 'SELECT * FROM jobs;';
                 $sql = mysqli_query($conn, $stm1) or die( mysqli_error($conn));
                 while($row = mysqli_fetch_array($sql, MYSQLI_BOTH)) {
                 ?>
-                    <div class="jobs-container">
-                        <form method="POST" action="apply.php">
-                            <table>
-                                <tr colspan=2><h2><?php echo $row['job_title']; ?></h2></tr>
-                                <tr colspan=2><td><h4><?php echo $row['company']; ?></h4></td><td><h4><?php echo $row['location']; ?></h4></td></tr>
-                                <tr><td><h4><?php echo $row['salary']; ?></h4></td><td rowspan=3><p><?php echo $row['description']; ?></tr>
-                                <tr><td><h4><?php echo $row['contact_email']; ?></h4></td></tr>
-                                <tr><td><h4><?php echo $row['contact_user']; ?></h4></td></tr>
-                            </table>
+                <div class="jobs-container" name="job-post">
+                    <form method="POST" action="apply.php">
+                        <div class="title">
+                            <h2><?php echo $row['job_title']; ?></h2>
+                            <h4><?php echo $row['company']; ?> • <?php echo $row['location']; ?></h4>
+                        </div>
+                        <div class="desc">
+                            <div id="left">
+                                <h4></h4>
+                                <h4><?php echo $row['salary']; ?></h4>
+                                <h4><?php echo $row['contact_email']; ?></h4>
+                                <h4><?php echo $row['contact_user']; ?></h4>
+                            </div>
+                            <div class="right">
+                                <p><?php echo $row['description']; ?></tr>
+                            </div>
                             <input type="submit" name="apply" value="Apply">
-                        </form>
-                    </div>
+                        </div>
+                    </form>
+                </div>
                 <?php
                 }
                 ?>
             </div>
         </div>
+        <script>
+            var count = document.getElementById("jobs").childElementCount;
+            document.getElementById('count').innerHTML = count+" posts found";
+        </script>
     </main>
 </body>
 </html>

@@ -1,14 +1,18 @@
 <?php
     session_start();
 
-    require 'conn.php';
+    if(isset($_SESSION['user'])) {
+        require 'conn.php';
 
-    $stm = "SELECT c_id, c_name FROM categories;";
-    $stmt = "SELECT DISTINCT location FROM jobs;";
-    $sql = mysqli_query($conn, $stm) or die( mysqli_error($conn));;
-    $option = '';
-    while($row = mysqli_fetch_assoc($sql)) {
-       $option .= '<option value = "'.$row['c_name'].'">'.$row['c_name'].'</option>';
+        $stm = "SELECT c_id, c_name FROM categories;";
+        $stmt = "SELECT DISTINCT location FROM jobs;";
+        $sql = mysqli_query($conn, $stm) or die( mysqli_error($conn));;
+        $option = '';
+        while($row = mysqli_fetch_assoc($sql)) {
+           $option .= '<option value = "'.$row['c_name'].'">'.$row['c_name'].'</option>';
+        }
+    } else {
+        header('Location: signIn.php');
     }
 ?>
 <!DOCTYPE html>
