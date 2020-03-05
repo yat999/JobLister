@@ -8,7 +8,7 @@
     $sql = mysqli_query($conn, $stm) or die( mysqli_error($conn));;
     $option = '';
     while($row = mysqli_fetch_assoc($sql)) {
-       $option .= '<option value = "'.$row['c_id'].'">'.$row['c_name'].'</option>';
+       $option .= '<option value = "'.$row['c_name'].'">'.$row['c_name'].'</option>';
     }
     $loc = '';
     $sql = mysqli_query($conn, $stmt) or die( mysqli_error($conn));;
@@ -52,17 +52,21 @@
         <div class="searchbox">
             <h1>Find a job.</h1>
             <h3>Select a category & your preferred location</h3>
-            <div class="categories">
-                <select> 
-                    <?php echo $option; ?>
-                </select>
-            </div>
-            <div class= "location">
-                <select>
-                    <?php echo $loc; ?>
-                </select>
-            </div><br>
-            <input type="button" value="Search"></button>
+            <form action="index.php" method="POST">
+                <div class="categories">
+                    <select name="category" id="category" required> 
+                        <option disabled selected>Select a category<option>
+                        <?php echo $option; ?>
+                    </select>
+                </div>
+                <div class="location">
+                    <select name="location" id="location" required>
+                        <option disabled selected>Select Location<option>
+                        <?php echo $loc; ?>
+                    </select>
+                </div><br>
+                <input type="submit" value="Search"></button>
+            </form>
         </div>
         <div class="bar">
             <h3 id="count"> posts found</h3>
@@ -70,9 +74,22 @@
         </div>
         <div class="jobs" id="jobs">
             <?php
-                $stm1 = 'SELECT * FROM jobs;';
-                $sql = mysqli_query($conn, $stm1) or die( mysqli_error($conn));
-                while($row = mysqli_fetch_array($sql, MYSQLI_BOTH)) {
+                if(!isset($_POST['category']) && !isset($_POST['location'])) {
+                    $stm1 = 'SELECT * FROM jobs;';
+                    $result = mysqli_query($conn, $stm1) or die( mysqli_error($conn));
+                } else {
+                    $cat = $_POST['category'];
+                    $loc = $_POST['location'];
+
+                    $stm1 = 'SELECT * FROM jobs WHERE category=? AND location=?';
+                    $sql = mysqli_stmt_init($conn);
+                    mysqli_stmt_prepare($sql, $stm1);
+                    mysqli_stmt_bind_param($sql, "ss", $cat, $loc);
+                    mysqli_stmt_execute($sql);
+                    $result = mysqli_stmt_get_result($sql);
+                }
+
+                while($row = mysqli_fetch_array($result, MYSQLI_BOTH)) {
                 ?>
                 <div class="jobs-container" name="job-post">
                     <form method="POST" action="apply.php">
