@@ -35,7 +35,7 @@
                 <input type="text" name="l_name" id="l_name" required placeholder="Doe">
             </div>
             <div class="content" id="right">
-                <label for="qual">Qualifictaion</label>
+                <label for="qual">Qualification</label>
                 <input type="text" name="qual" id="qual" required placeholder="Bachelor in Science">
                 <label for="ph_no">Contact</label>
                 <input type="tel" name="ph_no" id="ph_no" required placeholder="XXXXX XXXXX">

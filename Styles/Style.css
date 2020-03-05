@@ -262,7 +262,6 @@ Sign up
     padding: 50px 40px 55px;
 }
     #wide {
-        height: auto;
         width: 750px;
     }
 
@@ -302,7 +301,6 @@ Sign up
     position: relative;
     height: 287px;
 }
-
 
 label {
     font-size: 12px;
@@ -383,6 +381,51 @@ textarea {
     min-width: 320px;
     max-height: 100px;
     min-height: 100px;
+}
+
+@media screen and (max-width: 550px) {
+    .container {
+        max-width: 80%;
+        height: 65%;
+        margin: 50px auto;
+        padding: 25px;
+    }
+
+    .content input[type="text"],
+    .content input[type="name"],
+    .content input[type="password"],
+    .content input[type="date"],
+    .content input[type="datetime"],
+    .content input[type="email"],
+    .content input[type="tel"],
+    .content input[type="search"],
+    .content input[type="time"],
+    .content input[type="url"],
+    .content input[type="file"],
+    .content select,
+    textarea {
+        width: 70%;
+        padding: 16px 13px;
+        margin: auto;
+    }
+
+    input[type='submit']{
+        width: 60%;
+        margin-bottom: 50px;
+    }    
+
+    label {
+        font-size: 15px;
+        color: rgb(30, 30, 30);
+        padding-left: 10%;
+    }
+
+    #left,
+    #right {
+        margin: auto;
+        width: 100%;
+    }
+
 }
 
 /*=================================
