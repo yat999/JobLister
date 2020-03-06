@@ -252,7 +252,7 @@ Sign up
 .container {
     position: relative; 
     width: 355px;
-    height: 350px;
+    height: auto;
     margin: 50px auto;
     background-color: white;
     border-radius: 10px;
@@ -383,7 +383,7 @@ textarea {
     min-height: 100px;
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 450px) {
     .container {
         max-width: 80%;
         height: 65%;
@@ -435,6 +435,10 @@ textarea {
 @media screen and (max-width: 750px) {
     main {
         padding-top: 70px;
+    }
+
+    .searchbox {
+        width: 60%;
     }
 }
 
@@ -494,7 +498,7 @@ main {
         transform: translateY(-15%);
     }
 
-@media screen and (min-width: 550px) {
+@media screen and (min-width: 800px) {
     .searchbox {
         width: 80%;
         overflow: auto;
@@ -594,7 +598,7 @@ main {
         overflow: auto;
     }
 
-@media screen and (max-width:550px) {
+@media screen and (max-width:450px) {
     .jobs-container {
         height: auto;
     }
@@ -621,5 +625,11 @@ main {
     .jobs-container input[type='submit'] {
         margin: auto;
         margin-bottom: 50px;
+    }
+}
+
+@media screen and (min-width: 450px) {
+    .jobs-container input[type='submit'] {
+        transform: translateY(-30px);
     }
 }

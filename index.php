@@ -107,7 +107,11 @@
                             <div class="right">
                                 <p><?php echo $row['description']; ?></tr>
                             </div>
-                            <input type="submit" name="apply" value="Apply">
+                            <form action="apply.php" method="POST">
+                                <input type="hidden" name="jid" value="<?php echo $row['job_id']; ?>">
+                                <input type="hidden" name="uid" value="<?php echo $_SESSION['uid']; ?>">
+                                <input type="submit" name="apply" value="Apply">
+                            </form>
                         </div>
                     </form>
                 </div>
