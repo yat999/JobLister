@@ -553,22 +553,40 @@ main {
 ==================================*/
 
 .jobs-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas: "grid-title grid-title grid-title grid-button"
+    "grid-left grid-right grid-right grid-right";
     width: 80%;
-    height: 130px;
+    grid-row-gap: 20px;
+    grid-column-gap: 20px;
     padding: 25px 0;
     margin: 25px auto;
     background-color: #ebebeb;
 }
 
     .jobs-container .title {
-        overflow: auto;
-        padding-bottom: 20px;
+        grid-area: grid-title;
+        grid-column-end: 4;
     }
 
     .jobs-container input[type='submit'] {
         width: 150px;
-        margin-bottom: 50px;
-        margin-right: 50px;
+        margin-right: 20px;
+    }
+
+    .jobs-container .grid-left {
+        grid-area: grid-left;
+        grid-column-end: 2;
+    }
+
+    .jobs-container .grid-right {
+        grid-area: grid-right;
+        grid-column-end: 5;
+    }
+
+    .jobs-container .grid-button {
+        grid-area: grid-button;
     }
 
     .jobs-container h2 {
@@ -586,50 +604,18 @@ main {
         width: 70%;
     }
 
-    .jobs-container #left {
-        width: 20%;
-    }
-
-    .jobs-container #right {
-        right: 70%;
-    }
-
-    .jobs-container .desc {
-        overflow: auto;
-    }
-
 @media screen and (max-width:450px) {
     .jobs-container {
-        height: auto;
-    }
-
-    .jobs-container h2 {
-        padding-bottom: 20px;
-    }
-    
-    .jobs-container #left {
-        width: 100%;
-        padding-bottom: 10px;
-    }
-
-    .jobs-container #right {
-        padding-left: 25px;
-        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: "grid-title grid-title"
+        "grid-left grid-left"
+        "grid-right grid-right"
+        "grid-button grid-button";
     }
 
     .jobs-container p {
-        width: 80%;
-        margin: auto;
+        padding-left: 25px;
     }
 
-    .jobs-container input[type='submit'] {
-        margin: auto;
-        margin-bottom: 50px;
-    }
-}
-
-@media screen and (min-width: 450px) {
-    .jobs-container input[type='submit'] {
-        transform: translateY(-30px);
-    }
 }

@@ -92,28 +92,26 @@
                 while($row = mysqli_fetch_array($result, MYSQLI_BOTH)) {
                 ?>
                 <div class="jobs-container" name="job-post">
-                    <form method="POST" action="apply.php">
-                        <div class="title">
-                            <h2><?php echo $row['job_title']; ?></h2>
-                            <h4><?php echo $row['company']; ?> • <?php echo $row['location']; ?></h4>
-                        </div>
-                        <div class="desc">
-                            <div id="left">
-                                <h4></h4>
-                                <h4><?php echo $row['salary']; ?></h4>
-                                <h4><?php echo $row['contact_email']; ?></h4>
-                                <h4><?php echo $row['contact_user']; ?></h4>
-                            </div>
-                            <div class="right">
-                                <p><?php echo $row['description']; ?></tr>
-                            </div>
-                            <form action="apply.php" method="POST">
-                                <input type="hidden" name="jid" value="<?php echo $row['job_id']; ?>">
-                                <input type="hidden" name="uid" value="<?php echo $_SESSION['uid']; ?>">
-                                <input type="submit" name="apply" value="Apply">
-                            </form>
-                        </div>
-                    </form>
+                    <div class="title">
+                        <h2><?php echo $row['job_title']; ?></h2>
+                        <h4><?php echo $row['company']; ?> • <?php echo $row['location']; ?></h4>
+                    </div>
+                    <div id="left" class="grid-left">
+                        <h4></h4>
+                        <h4><?php echo $row['salary']; ?></h4>
+                        <h4><?php echo $row['contact_email']; ?></h4>
+                        <h4><?php echo $row['contact_user']; ?></h4>
+                    </div>
+                    <div class="grid-right">
+                        <p><?php echo $row['description']; ?></tr>
+                    </div>
+                    <div class="grid-button">
+                        <form action="apply.php" method="POST">
+                            <input type="hidden" name="jid" value="<?php echo $row['job_id']; ?>">
+                            <input type="hidden" name="uid" value="<?php echo $_SESSION['uid']; ?>">
+                            <input type="submit" name="apply" value="Apply">
+                        </form>
+                    </div>
                 </div>
                 <?php
                 }
