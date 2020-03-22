@@ -1,4 +1,5 @@
 <?php 
+    session_start();
     if(isset($_POST['submit-reg'])){
         require 'conn.php';
         
@@ -19,7 +20,7 @@
         $type = $_FILES['resume']['type'];
 
         if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-            header('Location: register.php?error=invalidemail&uid='.$fname);
+            header('Location: register.php?error=invalidemail&uid='.$email);
             exit();
         }
 
@@ -29,7 +30,7 @@
                 $location = "uploads/";
                 if(move_uploaded_file($tmp_name, $location.$name)){
                     echo "Uploaded Successfully";
-
+                    rename($location.$name,$fname.$ph_no.'.pdf');
                     $stmt = "SELECT email FROM user WHERE email=?;";
                     $sql = mysqli_stmt_init($conn);
                     mysqli_stmt_prepare($sql, $stmt);
@@ -42,33 +43,31 @@
                         echo "Unsuccessful: ". mysqli_error($conn);
                         exit();
                     }else if(empty($result)) {
-                        $filurl =$location.$name;
+                        $file = $fname.$ph_no.'.pdf';
+                        $fileurl = $location.$file.'.pdf';
+                        move_uploaded_file($file,$location);
                         $hashpass = password_hash($pass, PASSWORD_DEFAULT);
                         $stm = "INSERT INTO user(first_name, last_name, contact_user, contact_email, password, qualification, grad, resume) VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
                         mysqli_stmt_prepare($sql, $stm) or die(mysqli_error($conn));
                         mysqli_stmt_bind_param($sql, "ssssssss", $fname, $lname, $ph_no, $email, $hashpass, $qual, $grad, $fileurl);
                         if(mysqli_stmt_execute($sql)){
                             echo "Successful";
-                            $_SESSION['user'] = $email;
-                            header('Location: index.php?success');
+                            header('Location: signIn.php?success');
                         } else {
                             echo "Unsuccessful: ". mysqli_error($conn);
-                            header('Location: logIn.php?error=UserExists');
+                            header('Location: signIn.php?error='.mysqli_error($conn));
                         }
                     } 
                 } else{
                     echo "<center><h2>Failed to Upload File</h2></center>" ;
-                    sleep(5);
                     header('Location: register.php?error=UploadFailed');
                 }
             } else{
                 echo "<center><h2>File size should be 100 KiloBytes & Only PDF File</h2></center>" ;
-                sleep(5);
                 header('Location: register.php?error=FileTooBig');
             } 
         } else{
             echo "<center><h2>Please Select a File</h2></center>" ;
-            sleep(5);
             header('Location: register.php?error=SelectAFile');
         }
     }else {

@@ -52,6 +52,10 @@ td {
 body {
     font-family: 'Raleway', sans-serif;
     overflow-x: hidden;
+    min-height: 100vh;
+    display: block;
+    position: relative;
+    padding-bottom: 120px;
 }
 
 /*====================================
@@ -548,6 +552,48 @@ main {
         cursor: pointer;
     }
 
+    .ps {
+        display: block;
+        width: 20px;
+        height: 20px;
+        border: 5px solid #FFEFA1;
+        border-radius: 100% 100% 100% 0;
+        transform: rotateZ(45deg);
+        position: relative;
+        left: 50%;
+        right: 50%;
+    }
+
+    .ps:after{
+        content: '';
+        display: block;
+        width: 20px;
+        height: 20px;
+        border: 5px solid #FFEFA1;
+        border-radius: 0 100% 100% 100%;
+        transform: rotateZ(90deg);
+        position: absolute;
+        left: 0px;
+        bottom:0px;
+        margin: -20px;
+    }
+
+    .about {
+        margin-top: 150px;
+        color: white;
+        text-align: center;
+        width: 75%;
+        margin-inline: auto;
+    }
+
+        .about h1 {
+            font-size: 2.5rem;
+        }
+
+        .about p {
+            font-size: 1.5rem;
+        }
+
 /*==================================
     Job container
 ==================================*/
@@ -619,3 +665,60 @@ main {
     }
 
 }
+
+/*=================================
+    Console
+=================================*/
+
+.sec-title h2 {
+    text-align: center;
+}
+
+hr {
+    width: 80%;
+}
+/*================================
+    Footer
+================================*/
+
+.page-footer{
+    background: #6d93e6;
+    color: #182f53;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 99;
+    padding-top: 20px;
+    height: 120px;
+    margin-top: 50px;
+}
+
+    .page-footer .copy {
+        float: left;
+        padding-left: 30px;
+        width:50%;
+        margin-top: 55px;
+    }
+
+    .left{
+        float:left;
+        text-align: center;
+        width: 50%;
+    }
+    .right{
+        float:right;
+        text-align: left;
+        width: 40%;
+    }
+    .right a {
+        color: #182f53;
+        text-align: left;
+    }
+
+.initial-half h1{
+    font-size: 2rem;
+}
+    .initial-half h2{
+        font-size: 1.2rem;
+    }

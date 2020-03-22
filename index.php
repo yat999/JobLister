@@ -36,13 +36,12 @@
         <nav>
             <ul id ="navigation">
                 <li><a class="active" href="index.php">Home</a></li>
-                <li><a href="aboutus.php#contact">Contact us</a></li>
                 <li><a href="aboutus.php">About us</a></li>
                 <?php
                     if(!isset($_SESSION['user'])) {
                         echo '<li id="login"><a href="signIn.php"><img src="Icons/user-solid.svg"></a>';
                     } else {
-                        echo '<li id="logout"><a href="logOut.php">', $_SESSION['user'] ,'</a><ul><li><a href="logOut.php">Log out</a></li></ul></li>';
+                        echo '<li id="logout"><a href="console.php">', $_SESSION['user'] ,'</a><ul></li><li><a href="console.php">My console</a></li><li id="logout"><a href="logOut.php">Log out</a></li></ul></li>';
                     }
                 ?>
             </ul>
@@ -108,7 +107,7 @@
                     <div class="grid-button">
                         <form action="apply.php" method="POST">
                             <input type="hidden" name="jid" value="<?php echo $row['job_id']; ?>">
-                            <input type="hidden" name="uid" value="<?php echo $_SESSION['uid']; ?>">
+                            <input type="hidden" name="uid" value="<?php echo $_SESSION['u_id']; ?>">
                             <input type="submit" name="apply" value="Apply">
                         </form>
                     </div>
@@ -123,5 +122,23 @@
             document.getElementById('count').innerHTML = count+" posts found";
         </script>
     </main>
+    <footer class="page-footer">
+        <div class="left">
+            <h5>JobLister</h5>
+            <p>Let us help you excel</p>
+        </div>
+        <div class="right">
+            <h5>Useful Links</h5>
+            <ul>
+                <li><a href="index.php">Homepage</a></li>
+                <li><a href="contact.php">Contact Us</a></li>
+                <li><a href="about.php">About Us</a></li>
+                <li><a href="register.php">Register</a></li>
+            </ul>
+        </div>
+        <div class="footer-copyright">
+            <small class="copy">All Content Copyright 2020 - JobLister. All Rights Reserved</small>
+        </div>
+    </footer>
 </body>
 </html>

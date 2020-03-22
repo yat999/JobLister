@@ -21,7 +21,7 @@
             header('Location: signIn.php?error=invaliduser/pwd');
         } else if($pwdchck == true){
             $_SESSION['user'] = $row['first_name'];
-            $_SESSION['uid'] = $row['u_id'];
+            $_SESSION['u_id'] = $row['u_id'];
             if(isset($_SESSION['continue'])){
                 header("Location: {$_SESSION['continue']}");
                 exit;

@@ -73,7 +73,7 @@
                 <input type="email" name="email" id="email" required>
             </div>
             <div class="submit-wrap">
-                <input class="submit-add" type="submit" value="Submit">
+                <input class="submit-add" name="submit-add" type="submit" value="Submit">
             </div>
         </form>
     </div>
