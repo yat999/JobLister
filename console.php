@@ -36,7 +36,6 @@
         <div class="sec-title">
             <h2>Your Posts</h2>
         </div>
-        <hr>
         <?php
             $id = $_SESSION['u_id'];
             $stm1 = 'SELECT * FROM jobs WHERE u_id=?';
@@ -63,18 +62,16 @@
                     <p><?php echo $row['description']; ?></tr>
                 </div>
                 <form action="applicants.php" method="POST">
-                    <input type="hidden" name="id" value="<?php $row['job_id'] ?>">
+                    <input type="hidden" name="id" value="<?php echo $row['job_id']; ?>">
                     <input type="submit" value="View applicants">
                 </form>
             </div>
-            <hr>
         <?php
             }
         ?><br>
         <div class="sec-title">
             <h2>Your Applications</h2>
         </div>
-        <hr>
         <?php 
             $stm1 = 'SELECT * FROM applications WHERE u_id=?';
             mysqli_stmt_prepare($sql, $stm1);

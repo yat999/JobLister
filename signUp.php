@@ -43,9 +43,9 @@
                         echo "Unsuccessful: ". mysqli_error($conn);
                         exit();
                     }else if(empty($result)) {
-                        $file = $fname.$ph_no.'.pdf';
-                        $fileurl = $location.$file.'.pdf';
-                        move_uploaded_file($file,$location);
+                        $file = $fname.$ph_no;
+                        $fileurl = $location.$file;
+                        move_uploaded_file($file,$location);kjskbsdbmdsbmjbdsjbdsm
                         $hashpass = password_hash($pass, PASSWORD_DEFAULT);
                         $stm = "INSERT INTO user(first_name, last_name, contact_user, contact_email, password, qualification, grad, resume) VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
                         mysqli_stmt_prepare($sql, $stm) or die(mysqli_error($conn));
