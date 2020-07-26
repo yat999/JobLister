@@ -55,16 +55,18 @@
                 <div id="left" class="grid-left">
                     <h4></h4>
                     <h4><?php echo $row['salary']; ?></h4>
-                    <h4><?php echo $row['contact_email']; ?></h4>
-                    <h4><?php echo $row['contact_user']; ?></h4>
+                    <h4><?php echo $row['user_email']; ?></h4>
+                    <h4><?php echo $row['user_contact']; ?></h4>
                 </div>
                 <div class="grid-right">
                     <p><?php echo $row['description']; ?></tr>
                 </div>
-                <form action="applicants.php" method="POST">
-                    <input type="hidden" name="id" value="<?php echo $row['job_id']; ?>">
-                    <input type="submit" value="View applicants">
-                </form>
+                <div class="grid-button">
+                    <form action="applicants.php" method="POST">
+                        <input type="hidden" name="id" value="<?php echo $row['job_id']; ?>">
+                        <input type="submit" value="View applicants">
+                    </form>
+                </div>
             </div>
         <?php
             }
@@ -72,7 +74,7 @@
         <div class="sec-title">
             <h2>Your Applications</h2>
         </div>
-        <?php 
+        <?php
             $stm1 = 'SELECT * FROM applications WHERE u_id=?';
             mysqli_stmt_prepare($sql, $stm1);
             mysqli_stmt_bind_param($sql, "d", $id);
@@ -95,8 +97,8 @@
                         <div id="left" class="grid-left">
                             <h4></h4>
                             <h4><?php echo $row['salary']; ?></h4>
-                            <h4><?php echo $row['contact_email']; ?></h4>
-                            <h4><?php echo $row['contact_user']; ?></h4>
+                            <h4><?php echo $row['user_email']; ?></h4>
+                            <h4><?php echo $row['user_contact']; ?></h4>
                         </div>
                         <div class="grid-right">
                             <p><?php echo $row['description']; ?></tr>

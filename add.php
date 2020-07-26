@@ -15,7 +15,7 @@ if(isset($_POST['submit-add'])) {
     $email = $_POST['email'];
     echo $u_id.$cat.$company.$job.$desc.$salary.$loc.$contact.$email.$_SESSION['u_id'];
 
-    $stm = 'INSERT INTO jobs(u_id, category, company, job_title, description, salary, location, contact_user, contact_email) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)';
+    $stm = 'INSERT INTO jobs(u_id, category, company, job_title, description, salary, location, user_contact, user_email) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)';
     $sql = mysqli_stmt_init($conn);
     mysqli_stmt_prepare($sql, $stm) or die(mysqli_error($conn));
     mysqli_stmt_bind_param($sql, "dssssssss", $u_id, $cat, $company, $job, $desc, $salary, $loc, $contact, $email);

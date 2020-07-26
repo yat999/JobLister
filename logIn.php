@@ -7,7 +7,7 @@
         $user = $_POST['email'];
         $pass = $_POST['password'];
 
-        $stmt = 'SELECT * FROM user WHERE contact_email=?;';
+        $stmt = 'SELECT * FROM user WHERE user_email=?;';
         $sql = mysqli_stmt_init($conn);
         mysqli_stmt_prepare($sql, $stmt);
         mysqli_stmt_bind_param($sql, "s", $user);

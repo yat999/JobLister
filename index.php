@@ -15,7 +15,7 @@
     while($row = mysqli_fetch_assoc($sql)) {
         $loc .= '<option value = "'.$row['location'].'">'.$row['location'].'</option>';
     }
-    
+
 ?>
 
 <!DOCTYPE html>
@@ -41,7 +41,7 @@
                     if(!isset($_SESSION['user'])) {
                         echo '<li id="login"><a href="signIn.php"><img src="Icons/user-solid.svg"></a>';
                     } else {
-                        echo '<li id="logout"><a href="console.php">', $_SESSION['user'] ,'</a><ul></li><li><a href="console.php">My console</a></li><li id="logout"><a href="logOut.php">Log out</a></li></ul></li>';
+                        echo '<li id="logout"><block>', $_SESSION['user'] ,'</block><ul></li><li><a href="console.php">My console</a></li><li id="logout"><a href="logOut.php">Log out</a></li></ul></li>';
                     }
                 ?>
             </ul>
@@ -53,7 +53,7 @@
             <h3>Select a category & your preferred location</h3>
             <form action="index.php" method="POST">
                 <div class="categories">
-                    <select name="category" id="category" required> 
+                    <select name="category" id="category" required>
                         <option disabled selected>Select a category<option>
                         <?php echo $option; ?>
                     </select>
@@ -98,8 +98,8 @@
                     <div id="left" class="grid-left">
                         <h4></h4>
                         <h4><?php echo $row['salary']; ?></h4>
-                        <h4><?php echo $row['contact_email']; ?></h4>
-                        <h4><?php echo $row['contact_user']; ?></h4>
+                        <h4><?php echo $row['user_email']; ?></h4>
+                        <h4><?php echo $row['user_contact']; ?></h4>
                     </div>
                     <div class="grid-right">
                         <p><?php echo $row['description']; ?></tr>

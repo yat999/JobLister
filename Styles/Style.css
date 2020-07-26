@@ -11,8 +11,8 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
 	margin: 0;
@@ -22,7 +22,7 @@ time, mark, audio, video {
 	vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
+article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
@@ -191,14 +191,14 @@ ul#navigation li#logout ul li a {
     font-size: 1.5em;
 }
 
-li#logout a {
+li#logout block {
     padding: 10px;
     background: #000;
     color: #ccc;
     font-size: 1em;
 }
 
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 650px) {
     header {
         width: 100%;
         position: fixed;
@@ -214,7 +214,7 @@ li#logout a {
     .nav-up {
         top: -100px;
     }
-    
+
         header a h1{
             margin-top: 30px;
             font-size: 2.5em;
@@ -223,38 +223,43 @@ li#logout a {
             font-weight: 100;
             padding-bottom: 25px;
         }
-    
+
         header nav {
             overflow: hidden;
             text-align: center;
             padding-bottom: 20px;
+			left: 0;
         }
-    
+
         header nav ul{
             display: block;
             margin: 0 auto;
             width: fit-content;
         }
-    
+
         header nav li {
             color: #bfbfbf;
             font-size: 0.6rem;
             padding: 0 1px;
             display: inline-block;
         }
-    
+
         header nav li em {
             display: block;
             color: #474747;
             font-size: 2.4em;
         }
+
+		ul#navigation ul li a {
+			transform: translateY(-25px);
+		}
 }
 /*===================================
 Sign up
 ===================================*/
 
 .container {
-    position: relative; 
+    position: relative;
     width: 355px;
     height: auto;
     margin: 50px auto;
@@ -340,7 +345,7 @@ textarea {
 }
 
 input[type='submit']{
-    margin-inline: auto;
+    margin: auto;
     transform: translateY(25px);
     font-size: 12px;
     line-height: 42px;
@@ -349,7 +354,7 @@ input[type='submit']{
     height: 42px;
     cursor: pointer;
     color: rgb(12, 12, 12);
-    background-color: rgba(255, 255, 255, 0); 
+    background-color: rgba(255, 255, 255, 0);
     border: 1.5px solid #373B44;
     border-radius: 50px;
 }
@@ -374,7 +379,7 @@ input[type='submit']{
         text-decoration: underline;
     }
 
-    .cont { 
+    .cont {
         padding: 6px 12px;
         border: none;
         display: none;
@@ -416,7 +421,7 @@ textarea {
     input[type='submit']{
         width: 60%;
         margin-bottom: 50px;
-    }    
+    }
 
     label {
         font-size: 15px;
@@ -667,6 +672,10 @@ main {
     .jobs-container p {
         padding-left: 25px;
     }
+
+	.grid-button input[type=submit] {
+		transform: translate(-35px,25px);
+	}
 
 }
 

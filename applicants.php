@@ -36,7 +36,7 @@
         <div class="sec-title">
             <h2>Applicants</h2>
         </div>
-        
+
         <?php
             $array = array();
             $id = $_POST['id'];
@@ -61,12 +61,14 @@
                         <h4><?php echo $row['qualification']; ?> • <?php echo $row['grad']; ?></h4>
                     </div>
                     <div id="left" class="grid-left">
-                        <h4><?php echo $row['contact_email']; ?></h4>
-                        <h4><?php echo $row['contact_user']; ?></h4>
+                        <h4><?php echo $row['user_email']; ?></h4>
+                        <h4><?php echo $row['user_contact']; ?></h4>
                     </div>
-                    <form target="_blank" action="<?php echo $row['resume']?>" method="POST">
-                        <input type="submit" value="View Resume">
-                    </form>
+                    <div class="grid-button">
+                        <form target="_blank" action="<?php echo $row['resume']?>" method="POST">
+                            <input type="submit" value="View Resume">
+                        </form>
+                    </div>
                 </div>
                 <hr>
             <?php
