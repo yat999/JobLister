@@ -10,10 +10,10 @@ Some screenshots:
 <img src="Screenshots/Screenshot from 2020-07-26 22-45-56.png">
 <img src="Screenshots/Screenshot from 2020-07-26 22-56-34.png">
 <img src="Screenshots/Screenshot from 2020-07-26 22-58-06.png">
-<img src="Screenshots/Screenshot_20200726-225233338.jpg" width="48">
-<img src="Screenshots/Screenshot_20200726-231726430.jpg" width="48">
-<img src="Screenshots/Screenshot_20200726-225244018.jpg" width="48">
-<img src="Screenshots/Screenshot_20200726-231719711.jpg" width="48">
-<img src="Screenshots/Screenshot_20200726-231534657.jpg" width="48">
-<img src="Screenshots/Screenshot_20200726-231700419.jpg" width="48">
-<img src="Screenshots/Screenshot_20200726-231732420.jpg" width="48">
+<img src="Screenshots/Screenshot_20200726-225233338.jpg" width="128">
+<img src="Screenshots/Screenshot_20200726-231726430.jpg" width="128">
+<img src="Screenshots/Screenshot_20200726-225244018.jpg" width="128">
+<img src="Screenshots/Screenshot_20200726-231719711.jpg" width="128">
+<img src="Screenshots/Screenshot_20200726-231534657.jpg" width="128">
+<img src="Screenshots/Screenshot_20200726-231700419.jpg" width="128">
+<img src="Screenshots/Screenshot_20200726-231732420.jpg" width="128">
